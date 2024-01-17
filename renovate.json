@@ -5,11 +5,11 @@
   ],
   "pinDigests": true,
   "platformAutomerge": true,
+  "includePaths": ["src/test/java"],
   "customManagers": [
     {
       "customType": "regex",
       "description": "Update docker references in Java files",
-      "includePaths": ["**"],
       "fileMatch": ["\\.java$"],
       "matchStrings": [
         "\"(?<depName>(?:gcr\\.io|docker\\.io)\\/[^:]+?):(?<currentValue>[^@]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?\""
