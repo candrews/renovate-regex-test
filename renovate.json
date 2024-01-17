@@ -9,7 +9,7 @@
     {
       "customType": "regex",
       "description": "Update docker references in Java files",
-      "fileMatch": ["\\.java$"],
+      "fileMatch": ["(^|/)[^/]*\\.java$"],
       "matchStrings": [
         "\"(?<depName>(?:gcr\\.io|docker\\.io)\\/[^:]+?):(?<currentValue>[^@]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?\""
       ],
