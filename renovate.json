@@ -5,8 +5,9 @@
   ],
   "pinDigests": true,
   "platformAutomerge": true,
-  "regexManagers": [
+  "customManagers": [
     {
+      "customType": "regex",
       "description": "Update docker references in Java files",
       "fileMatch": ["\\.java$"],
       "matchStrings": [
