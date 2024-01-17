@@ -14,7 +14,7 @@
     "**/__tests__/**",
     "**/tests/**",
     "**/__fixtures__/**"
-  ]
+  ],
   "pinDigests": true,
   "platformAutomerge": true,
   "customManagers": [
