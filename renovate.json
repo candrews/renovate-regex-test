@@ -3,9 +3,20 @@
   "extends": [
     "config:base"
   ],
+  "ignore resets": [
+    ":ignoreModulesAndTests"
+  ],
+  "ignorePaths": [
+    "**/node_modules/**",
+    "**/bower_components/**",
+    "**/vendor/**",
+    "**/examples/**",
+    "**/__tests__/**",
+    "**/tests/**",
+    "**/__fixtures__/**"
+  ]
   "pinDigests": true,
   "platformAutomerge": true,
-  "includePaths": ["src/test/java"],
   "customManagers": [
     {
       "customType": "regex",
