@@ -27,19 +27,19 @@
       ],
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["\\.yml$"],
+      "matchStrings": ["TRIVY_POLICIES_IMAGE *: "\"(?<depName>(?:.+?):(?<currentValue>[^@]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?\""],
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "docker"
     }
   ],
   "packageRules": [
     {
       "updateTypes": ["major", "minor", "patch", "pin", "digest"],
       "automerge": true
-    }
-  ],
-  "regexManagers": [
-    {
-      "fileMatch": ["\\.yml$"],
-      "matchStrings": ["TRIVY_POLICIES_IMAGE *: *\"(?<currentValue>.+?)\""],
-      "datasourceTemplate": "docker"
     }
   ]
 }
