@@ -31,7 +31,7 @@
     {
       "customType": "regex",
       "fileMatch": ["\\.yml$"],
-      "matchStrings": ["TRIVY_POLICIES_IMAGE *: "\"(?<depName>(?:.+?):(?<currentValue>[^@]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?\""],
+      "matchStrings": ["TRIVY_POLICIES_IMAGE *: \"(?<depName>(?:.+?):(?<currentValue>[^@]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?\""],
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
     }
