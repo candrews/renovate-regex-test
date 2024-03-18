@@ -34,5 +34,13 @@
       "updateTypes": ["major", "minor", "patch", "pin", "digest"],
       "automerge": true
     }
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": ["\\.yml$"],
+      "matchStrings": ["TRIVY_POLICIES_IMAGE *: *\"(?<currentValue>.+?)\""],
+      "depNameTemplate": "docker",
+      "datasourceTemplate": "docker"
+    }
   ]
 }
