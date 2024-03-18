@@ -39,7 +39,6 @@
     {
       "fileMatch": ["\\.yml$"],
       "matchStrings": ["TRIVY_POLICIES_IMAGE *: *\"(?<currentValue>.+?)\""],
-      "depNameTemplate": "docker",
       "datasourceTemplate": "docker"
     }
   ]
