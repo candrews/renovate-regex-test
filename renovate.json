@@ -19,6 +19,14 @@
   "platformAutomerge": true,
   "customManagers": [
     {
+        "customType": "regex",
+        "fileMatch": ["\\.yml$"],
+        "matchStrings": [
+            "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s.*?_VERSION:\\s*\"(?<currentValue>.*)\"\\s"
+        ],
+        "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    },
+    {
       "customType": "regex",
       "description": "Update docker references in Java files",
       "fileMatch": ["\\.java$"],
