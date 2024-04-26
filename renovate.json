@@ -22,7 +22,7 @@
         "customType": "regex",
         "fileMatch": ["\\.yml$"],
         "matchStrings": [
-            "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s.*?_VERSION:\\s*\"(?<currentValue>.*)\"\\s"
+            "datasource=(?<datasource>.*?) depName=(?<depName>.*?) (versioning=(?<versioning>.*?))? (registryUrl=(?<registryUrl>.*?))?\\s.*?_VERSION:\\s*\"(?<currentValue>.*)\"\\s"
         ],
         "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     },
