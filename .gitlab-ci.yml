@@ -1,6 +1,6 @@
 
     # renovate: datasource=gitlab-tags depName=gitlab-com/gl-infra/common-ci-tasks versioning=semver registryUrl=https://gitlab.com
-    GITLAB_COMMON_CI_TASKS_VERSION: "v2.5.0"
+    GITLAB_COMMON_CI_TASKS_VERSION: "v2.8.0"
     
     # renovate: datasource=npm depName=semantic-release versioning=npm
     SEMANTIC_RELEASE_VERSION: "23.0.8"
