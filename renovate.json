@@ -17,6 +17,11 @@
   ],
   "pinDigests": true,
   "platformAutomerge": true,
+  "registryAliases": {
+      "$CI_SERVER_URL": "https://gitlab.com",
+      "https://$CI_SERVER_HOST": "https://gitlab.com",
+      "$CI_SERVER_HOST": "gitlab.com"
+  },
   "customManagers": [
     {
         "customType": "regex",
