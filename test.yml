@@ -1,1 +1,1 @@
-TRIVY_POLICIES_IMAGE: "ghcr.io/aquasecurity/trivy-policies:0.9.0@sha256:999ece64907693d42a9358823cf82bc9ce894a7864ef71225190cd2d6d5e3d5d"
+TRIVY_POLICIES_IMAGE: "ghcr.io/aquasecurity/trivy-policies:0.13.0@sha256:f8d09743f5f91046e7c80b9a2b0f841946a0e2c2d350cb6492cafe1db8f08220"
