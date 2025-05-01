@@ -1,66 +1,56 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
-  ],
-  "ignorePresets": [
-    ":ignoreModulesAndTests"
-  ],
-  "ignorePaths": [
-    "**/node_modules/**",
-    "**/bower_components/**",
-    "**/vendor/**",
-    "**/examples/**",
-    "**/__tests__/**",
-    "**/tests/**",
-    "**/__fixtures__/**"
-  ],
-  "pinDigests": true,
-  "platformAutomerge": true,
-  "registryAliases": {
-      "$CI_SERVER_URL": "https://gitlab.com",
-      "https://$CI_SERVER_HOST": "https://gitlab.com",
-      "$CI_SERVER_HOST": "gitlab.com"
-  },
-  "customManagers": [
-    {
-        "customType": "regex",
-        "fileMatch": ["\\.yml$"],
-        "matchStrings": [
-            "datasource=(?<datasource>.*?) depName=(?<depName>.*?) (versioning=(?<versioning>.*?))? (registryUrl=(?<registryUrl>.*?))?\\s.*?_VERSION:\\s*\"(?<currentValue>.*)\"\\s"
-        ],
-        "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:recommended",
+        ":semanticCommitTypeAll(chore)"
+    ],
+    "pinDigests": true,
+    "gitLabIgnoreApprovals": true,
+    "gitlabci": {
+        "fileMatch": [
+            ".*\\.yml$"
+        ]
     },
-    {
-      "customType": "regex",
-      "description": "Update docker references in Java files",
-      "fileMatch": ["\\.java$"],
-      "matchStrings": [
-        "\"(?<depName>(?:gcr\\.io|docker\\.io)\\/[^:]+?):(?<currentValue>[^@]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?\""
-      ],
-      "datasourceTemplate": "docker",
-      "versioningTemplate": "docker"
-    },
-    {
-      "customType": "regex",
-      "fileMatch": ["\\.yml$"],
-      "matchStrings": ["TRIVY_POLICIES_IMAGE *: \"(?<depName>(?:[^@]+)):(?<currentValue>[^@]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?\""],
-      "datasourceTemplate": "docker",
-      "versioningTemplate": "docker"
-    },
-    {
-      "customType": "regex",
-      "fileMatch": ["build\\.sh$"],
-      "matchStrings": [
-        "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s.*?_version=\"(?<currentValue>.*)\"\\s"
-      ],
-      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
-    }
-  ],
-  "packageRules": [
-    {
-      "updateTypes": ["major", "minor", "patch", "pin", "digest"],
-      "automerge": true
-    }
-  ]
+    "packageRules": [
+        {
+            "matchFileNames": [
+                "stuff/**"
+            ],
+            "semanticCommitType": "fix"
+        },
+        {
+            "matchUpdateTypes": [
+                "major",
+                "minor",
+                "patch",
+                "pin",
+                "digest"
+            ],
+            "automerge": true
+        }
+    ],
+    "customManagers": [
+        {
+            "customType": "regex",
+            "fileMatch": [
+                "(^|/)Dockerfile$"
+            ],
+            "matchStrings": [
+                "ARG VAULT_VERSION=(?<currentValue>.+?)\\n"
+            ],
+            "depNameTemplate": "hashicorp/vault",
+            "datasourceTemplate": "github-releases"
+        },
+        {
+            "customType": "regex",
+            "fileMatch": [
+                "(^|/)Dockerfile$"
+            ],
+            "matchStrings": [
+                "ARG CHECKOV_VERSION=(?<currentValue>.+?)\\n"
+            ],
+            "datasourceTemplate": "pypi",
+            "depNameTemplate": "checkov"
+        }
+    ]
 }
