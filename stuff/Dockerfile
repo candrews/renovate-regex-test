@@ -21,4 +21,4 @@ COPY settings.xml /secrel/maven/settings.xml
 COPY release-settings.xml /secrel/maven/release-settings.xml
 
 ARG CHECKOV_VERSION=3.2.372
-ARG VAULT_VERSION=1.19.1
+ARG VAULT_VERSION=1.19.3
